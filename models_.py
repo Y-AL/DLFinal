@@ -324,9 +324,9 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer=optim
 
 dataset = create_wall_dataloader(data_path='./DL24FA/train', device=device, batch_size=64)
 
-
 num_epochs = 10
 min_loss = float('inf')
+# step = 0
 for epoch in tqdm(range(num_epochs), desc=f""):
     model.train()
     total_loss = 0
@@ -347,7 +347,7 @@ for epoch in tqdm(range(num_epochs), desc=f""):
         # if step % 100 == 0:
         #     print(f"training loss {loss.item()}")
 
-        step += 1
+        # step += 1
     mean_loss = total_loss/len(dataset)
     print(f"Epoch: {epoch+1}, Training Loss: {mean_loss: .4f}")
 
